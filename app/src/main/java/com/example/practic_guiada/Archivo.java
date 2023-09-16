@@ -29,10 +29,6 @@ public class Archivo {
         // mkdirs sirve para crear librerias(directorios) desde la consola
         if(!file.exists()) file.mkdirs();
     }
-
-    private void createDirectory(File file){
-        if (!file.exists()) file.mkdirs();
-    }
     public void saveFile(String nameFile, String contentFile){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P){
             //Para la version menor o igual a la P (9.0)
@@ -49,7 +45,7 @@ public class Archivo {
             directory = new File(Environment.getExternalStorageDirectory(),"comunidadUE");
         }
 
-        createDirectory(directory);
+        crearDir(directory);
         Toast.makeText(context, "Ruta:" + directory, Toast.LENGTH_LONG).show();
 
         File file = new File(directory, nameFile);
